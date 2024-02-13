@@ -1,1 +1,1 @@
-// script that does something
+// create a log file that contains random numbers
