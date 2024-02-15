@@ -81,6 +81,10 @@ btn {
         text-decoration: none;
     }
 
+bodyIP {
+    align-content: center
+}
+
 script {
     color: white;
 }
