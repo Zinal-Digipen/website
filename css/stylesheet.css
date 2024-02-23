@@ -81,16 +81,17 @@ btn {
         text-decoration: none;
     }
 
+/*align content and visualize in a box*/
 bodyIP {
-    align-content: center
+    align-content: left;
 }
 
 script {
     color: white;
 }
-    /*keyframes*/
-    @keyframes flash {
-        50% {
-            opacity: 0;
-        }
+/*keyframes*/
+@keyframes flash {
+    50% {
+        opacity: 0;
     }
+}

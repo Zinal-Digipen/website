@@ -1,6 +1,10 @@
-// This script gets the users ip address and generates a log file
+// This script gets the user's IP address and generates a log file
 
 // Function to fetch the user's IP address
+/**
+ * Fetches the user's IP address from the API
+ * @returns {string} The user's IP address
+ */
 async function getIPAddress() {
     try {
         const response = await fetch('https://api.ipify.org?format=json');
@@ -13,6 +17,9 @@ async function getIPAddress() {
 }
 
 // Function to generate the content of the log file
+/**
+ * Generates the content of the log file using the user's IP address
+ */
 async function generateLogFile() {
     const ipAddress = await getIPAddress();
     if (!ipAddress) return;
