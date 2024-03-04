@@ -51,7 +51,7 @@ p2 {
     font-variant-numeric: normal;
 }
 
-btn {
+button {
     -ms-align-content: inherit;
     -webkit-align-content: inherit;
     align-content: inherit;
@@ -82,7 +82,7 @@ btn {
     }
 
 bodyIP {
-    align-content: center
+    align-content: left;
 }
 
 script {

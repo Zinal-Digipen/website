@@ -1,40 +1,27 @@
 <?php
-// This script checks if user is a bot, and redirects to empty page
-// Check if the user agent is a known bot
-function isBot() {
-    $bot_agents = array(
-        'googlebot',
-        'bingbot',
-        'yahoo',
-        'baiduspider',
-        'yandexbot',
-        // Add more bot user agents as needed
-    );
-    $user_agent = strtolower($_SERVER['HTTP_USER_AGENT']);
-    foreach ($bot_agents as $bot) {
-        if (strpos($user_agent, $bot) !== false) {
-            return true;
-        }
-    }
-    return false;
+// Set headers to discourage caching and frame embedding
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+header("X-Frame-Options: DENY");
+
+// Check if the request is coming from a known browser
+$user_agent = $_SERVER['HTTP_USER_AGENT'];
+if (strpos($user_agent, 'bot') !== false) {
+    // If the user agent contains 'bot', it might be a bot
+    http_response_code(403); // Forbidden
+    exit;
 }
 
-// Redirect bots to a different page or display a message
-if (isBot()) {
-    header("Location: /bot-detected.php"); // Redirect bots to a specific page
-    exit();
+// Check if the request is coming too fast (rate limiting)
+$requests_per_minute = 20; // Adjust as needed
+$min_request_interval = 60 / $requests_per_minute;
+$last_request_time = isset($_SESSION['last_request_time']) ? $_SESSION['last_request_time'] : 0;
+$current_time = microtime(true);
+if ($current_time - $last_request_time < $min_request_interval) {
+    http_response_code(429); // Too Many Requests
+    exit;
 }
 
-// Output a robots meta tag to tell bots not to index the page
-echo '<meta name="robots" content="noindex, nofollow">';
-
-// Output a robots.txt file to instruct bots not to crawl certain parts of the website
-$robots_txt = "User-agent: *\n";
-$robots_txt .= "Disallow: /admin/\n"; // Disallow indexing of the /admin/ directory
-file_put_contents("robots.txt", $robots_txt);
-
-// Add a CAPTCHA verification for human users
-echo '<form action="verify-captcha.php" method="post">';
-echo '  <!-- Insert your CAPTCHA code here -->';
-echo '</form>';
-?>
+// Record the current request time
+$_SESSION['last_request_time'] = $current_time;
