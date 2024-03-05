@@ -51,20 +51,6 @@ p2 {
     font-variant-numeric: normal;
 }
 
-a {
-    padding: 10%;
-    text-align: center;
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-    font-style: italic;
-    font-weight: bold;
-    font-variant: normal;
-    font-variant-ligatures: normal;
-    font-variant-caps: normal;
-    font-variant-numeric: normal;
-}
-
 button {
     -ms-align-content: inherit;
     -webkit-align-content: inherit;
