@@ -23,6 +23,10 @@ h2 {
     animation: flash 1s linear infinite;
 }
 
+h4 {
+    text-align: center;
+}
+
 p {
     padding: 10%;
     text-align: center;
@@ -51,6 +55,25 @@ p2 {
     font-variant-numeric: normal;
 }
 
+a {
+    padding: 10%;
+    text-align: center;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+    font-variant: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+}
+
+@font-face {
+    font-family: derp;
+    src: url("derp.ttf");
+}
+
 button {
     -ms-align-content: inherit;
     -webkit-align-content: inherit;
@@ -64,14 +87,14 @@ button {
     -webkit-border-radius: 28;
     -moz-border-radius: 28;
     border-radius: 28px;
-    font-family: Arial;
+    font-family: derp;
     color: #000000;
     font-size: 20px;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
 }
 
-    btn:hover {
+    button:hover {
         background: #000000;
         background-image: -webkit-linear-gradient(top, #000000, #c8c8c8);
         background-image: -moz-linear-gradient(top, #000000, #c8c8c8);
@@ -88,9 +111,9 @@ bodyIP {
 script {
     color: white;
 }
-    /*keyframes*/
-    @keyframes flash {
-        50% {
-            opacity: 0;
-        }
+/*keyframes*/
+@keyframes flash {
+    50% {
+        opacity: 0;
     }
+}

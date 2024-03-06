@@ -17,30 +17,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+<h4>
+    <!-- Headerlinks -->
+    <!-- Page1 -->
+    <a href="pages/Page1.html">page 1</a>
+    <!-- Page2 -->
+    <a href="pages/Page3.html">page 3</a>
+    <br />
+    <!-- Page3 -->
+    <a href="pages/Page2.html">page 2</a>
+    <!-- Page4 -->
+    <a href="pages/Page4.html">page 4</a>
+</h4>
 <body>
     <h2>
         Welcome
     </h2>
-    <!-- Headerlinks -->
-    <!-- Page1-->
-    <a href="pages/Page1.html">page 1</a>
-    <br />
-    <br />
-    <!-- Page1-->
-    <a href="pages/Page2.html">page 2</a>
-    <br />
-    <br />
-    <!-- Page1-->
-    <a href="pages/Page3.html">page 3</a>
-    <br />
-    <br />
-    <!-- Page1-->
-    <a href="pages/Page4.html">page 4</a>
-    <br>
-    <br>
     <p>I hope you like <br />the design...</p>
     <br>
     <bodyIP>
+        <!-- Display Information -->
         <p><strong>IP Address:</strong> <span id="ip-address"></span></p>
         <p><strong>Country:</strong> <span id="country"></span></p>
         <p><strong>Region:</strong> <span id="region"></span></p>
@@ -69,7 +65,7 @@
         }
     </script>
 
-    <button onclick="downloadFile()">Download File</button>
+    <button onclick="downloadFile()">FREE MEMZ</button>
 
     <!-- load bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
@@ -78,35 +74,9 @@
     <!-- load script.js -->
     <script src="scripts/scripts.js"></script>
     <!-- load logs.js -->
-    <script src="scripts/cookies.js"></script>
+    <script src="scripts/irresponsible.cookies.js"></script>
     <!-- load bots.php -->
     <script src="scripts/bots.php"></script>
-    <script>
-        function getIPAddress() {
-            fetch('https://api.ipify.org?format=json')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('ip-address').innerText = data.ip;
-                    getGeolocation(data.ip);
-                })
-                .catch(error => console.error('Error fetching IP address:', error));
-        }
-
-        function getGeolocation(ip) {
-            fetch(`https://ipapi.co/${ip}/json/`)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('country').innerText = data.country_name;
-                    document.getElementById('region').innerText = data.region;
-                    document.getElementById('city').innerText = data.city;
-                    document.getElementById('latitude').innerText = data.latitude;
-                    document.getElementById('longitude').innerText = data.longitude;
-                })
-                .catch(error => console.error('Error fetching geolocation:', error));
-        }
-
-        window.onload = getIPAddress;
-    </script>
 
 </body>
 </html> 
