@@ -10,7 +10,6 @@ Welcome to the Zinal-Digipen website repository! This project showcases our web 
 -   Installation
 -   Usage
 -   Contributing
--   License
 
 ## About
 
