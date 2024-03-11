@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- link css -->
+    <link rel="stylesheet" type="text/css" href="css/Login.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <form id="loginForm" onsubmit="redirectUser(event)">
+        <h2>Login</h2>
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="submit" value="Login">
+    </form>
+
+    <script>
+        function redirectUser(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get the username and password
+            var username = document.getElementsByName('username')[0].value;
+            var password = document.getElementsByName('password')[0].value;
+
+            // Your authentication logic here
+            // For demonstration purposes, let's assume authentication is successful
+            var authenticated = true;
+
+            if (authenticated) {
+                // Redirect to homepage.html
+                window.location.href = "..\homepage.html";
+            } else {
+                // Handle unsuccessful login
+                alert("Invalid username or password. Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>

