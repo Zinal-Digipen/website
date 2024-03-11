@@ -3,34 +3,56 @@
 <head>
     <title>Website Project</title>
     <!-- link css -->
-    <link rel="stylesheet" type="text/css" href="css/stylesheet2.css">
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
 
     <!-- set text encoding and set localized view -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            text-align: center;
+        }
+
+        main {
+            display: inline-block;
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
-    <h4>
-        <!-- Other Pages -->
-        <a href="pages/Login.html">Log In</a> <a href="pages/petition.html">Net Neutrality</a> <a href="pages/Page3.html">page 3</a> <a href="pages/User-Information.html">User Information</a>
-    </h4>
-    <h2>
-        Welcome
-    </h2>
-    <p>I hope you like <br />the design...</p>
-    <br>
-    <h2>User Information</h2>
-    <div id="user-info">
-        <p><strong>IP Address:</strong> <span id="ip-address"></span></p>
-        <p><strong>Country:</strong> <span id="country"></span></p>
-        <p><strong>Region:</strong> <span id="region"></span></p>
-        <p><strong>City:</strong> <span id="city"></span></p>
-        <p><strong>Latitude:</strong> <span id="latitude"></span></p>
-        <p><strong>Longitude:</strong> <span id="longitude"></span></p>
+    <!-- Navigation links -->
+    <div style="text-align: center;">
+        <h4>Other Pages</h4>
+        <a href="pages/Login.html">Log In</a> <br />
+        <a href="pages/petition.html">Net Neutrality</a> <br />
+        <a href="pages/Page3.html">page 3</a> <br />
+        <a href="pages/User-Information.html">User Information</a> <br />
     </div>
-    <!-- load logs.js -->
-    <script src="scripts/irresponsible.cookies.js"></script>
 
+    <!-- Main content -->
+    <h2>Welcome</h2>
+    <h3>History of Digipen Institute of Technology</h3>
+    <main>
+        <p><em><strong>Introduction</strong></em></p>
+        <p>Digipen Institute of Technology stands as a beacon of innovation and excellence in the realm of interactive media education. Established in 1988 by Claude Comair, Digipen embarked on a journey to redefine the landscape of digital entertainment by blending technology with creativity. With campuses in the United States, Canada, and Singapore, Digipen has grown into a global institution renowned for its cutting-edge programs and industry partnerships.</p>
+        <p><em><strong>History</strong></em></p>
+        <p>Digipen&#39;s history is a testament to its commitment to innovation and excellence. Founded as a computer simulation and animation company in Vancouver, Canada, Digipen quickly recognized the growing demand for skilled professionals in the field of video game development and digital art. In response to this demand, Digipen expanded its offerings to include degree programs in game design, development, animation, computer science, and digital art.</p>
+        <p>Over the years, Digipen has continuously evolved to stay ahead of the curve in the ever-changing landscape of interactive media. It has adapted its curriculum to incorporate the latest technologies and industry trends, ensuring that students receive a comprehensive education that prepares them for success in the competitive world of digital entertainment.</p>
+        <p><em><strong>Impact on Society</strong></em></p>
+        <p>Digipen&#39;s impact extends far beyond the walls of its classrooms. With a diverse and vibrant community of students and alumni, Digipen has made significant contributions to the interactive media industry and society as a whole. Alumni of Digipen have gone on to work at some of the world&#39;s most renowned game development studios, animation companies, and technology firms, creating groundbreaking content and pushing the boundaries of what is possible in the world of digital entertainment.</p>
+        <p>Furthermore, Digipen&#39;s commitment to fostering creativity and innovation has led to the development of groundbreaking technologies and experiences that have transformed industries and changed the way we interact with digital content. From immersive virtual reality experiences to cutting-edge video game mechanics, Digipen alumni continue to push the boundaries of what is possible in interactive media, shaping the future of entertainment and technology.</p>
+        <p><em><strong>Events and Initiatives</strong></em></p>
+        <p>In addition to its academic programs, Digipen hosts a variety of events and initiatives aimed at fostering creativity, collaboration, and innovation within the interactive media community. These events provide students with opportunities to showcase their work, network with industry professionals, and gain valuable insights into the latest trends and technologies in the field.</p>
+        <p>One such event is the Digipen Global Game Jam, an annual event where students from Digipen campuses around the world come together to create original video games in a collaborative and fast-paced environment. The Global Game Jam provides students with an opportunity to put their skills to the test, work with peers from different disciplines, and gain hands-on experience in game development.</p>
+        <p>Digipen also hosts industry panels, workshops, and guest lectures featuring leading professionals from the interactive media industry. These events provide students with valuable insights into the latest trends, technologies, and career opportunities in the field, as well as opportunities to network with industry professionals and potential employers.</p>
+        <p><em><strong>Conclusion</strong></em></p>
+        <p>In conclusion, Digipen Institute of Technology has established itself as a leader in interactive media education, with a rich history of innovation, excellence, and impact on society. Through its comprehensive academic programs, industry partnerships, and commitment to fostering creativity and innovation, Digipen continues to shape the future of interactive media and inspire the next generation of creators, innovators, and industry leaders.</p>
+
+    </main>
+
+    <br>
     <button onclick="downloadFile()">FREE MEMZ</button>
     <script>
         function downloadFile() {
@@ -57,8 +79,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <!-- load script.js -->
     <script src="scripts/scripts.js"></script>
-    <!-- load logs.js -->
-    <script src="scripts/irresponsible.cookies.js"></script>
     <!-- load bots.php -->
     <script src="scripts/bots.php"></script>
 

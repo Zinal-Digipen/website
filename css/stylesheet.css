@@ -1,128 +1,83 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
 body {
-    /*background gradient*/
-    background: #000000;
-    background: linear-gradient(90deg,#000000 0%, #111111 80%);
-    background: -webkit-linear-gradient(90deg,#000000 0%, #111111 80%);
-    background: -moz-linear-gradient(90deg,#000000 0%, #111111 80%);
-    /*border radius groove*/
-    border-radius: 30px 30px 30px 30px;
-    -webkit-border-radius: 30px 30px 30px 30px;
-    -moz-border-radius: 30px 30px 30px 30px;
-    border: 20px groove #c8c8c8;
-    padding: 10%;
-    /*box inner-glow*/
-    box-shadow: 0px 0px 50px 0px rgba(200,200,200,1) inset;
-    -webkit-box-shadow: 0px 0px 50px 0px rgba(200,200,200,1) inset;
-    -moz-box-shadow: 0px 0px 50px 0px rgba(200,200,200,1) inset;
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #f4f4f4;
+    padding: 20px;
 }
 
+/* Header styling */
 h2 {
-    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
     text-align: center;
-    /*animation*/
+    /* Blinking Animation */
     animation: flash 1s linear infinite;
+
 }
 
-h4 {
-    text-align: center;
-}
-
+/* Paragraph styling */
 p {
-    padding: 10%;
-    text-align: center;
-    color: white;
-    font-family: 'Times New Roman', Times, sans-serif;
-    font-size: 20px;
-    font-style: italic;
-    font-weight: bold;
-    font-variant: normal;
-    font-variant-ligatures: normal;
-    font-variant-caps: normal;
-    font-variant-numeric: normal;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    text-align: justify;
 }
 
-p2 {
-    padding: 10%;
-    text-align: center;
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-    font-style: italic;
-    font-weight: bold;
-    font-variant: normal;
-    font-variant-ligatures: normal;
-    font-variant-caps: normal;
-    font-variant-numeric: normal;
-}
-
+/* Links styling */
 a {
-    padding: 10%;
-    text-align: center;
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-    font-style: italic;
-    font-weight: bold;
-    font-variant: normal;
-    font-variant-ligatures: normal;
-    font-variant-caps: normal;
-    font-variant-numeric: normal;
-}
-
-@font-face {
-    font-family: derp;
-    src: url("derp.ttf");
-}
-button {
-    -ms-align-content: inherit;
-    -webkit-align-content: inherit;
-    align-content: inherit;
-    background: #c8c8c8;
-    background-image: -webkit-linear-gradient(top, #c8c8c8, #000000);
-    background-image: -moz-linear-gradient(top, #c8c8c8, #000000);
-    background-image: -ms-linear-gradient(top, #c8c8c8, #000000);
-    background-image: -o-linear-gradient(top, #c8c8c8, #000000);
-    background-image: linear-gradient(to bottom, #c8c8c8, #000000);
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
-    border-radius: 28px;
-    font-family: derp;
-    color: #000000;
-    font-size: 20px;
-    padding: 10px 20px 10px 20px;
+    color: #4caf50;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-    button:hover {
-        background: #000000;
-        background-image: -webkit-linear-gradient(top, #000000, #c8c8c8);
-        background-image: -moz-linear-gradient(top, #000000, #c8c8c8);
-        background-image: -ms-linear-gradient(top, #000000, #c8c8c8);
-        background-image: -o-linear-gradient(top, #000000, #c8c8c8);
-        background-image: linear-gradient(to bottom, #000000, #c8c8c8);
-        text-decoration: none;
+    a:hover {
+        color: #388e3c;
+    }
+/* Define the custom font */
+@font-face {
+    font-family: 'Derp';
+    src: url('derp.ttf') format('truetype');
+}
+
+/* Button styling */
+button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    /* Use the custom font */
+    font-family: 'Derp', sans-serif; 
+}
+
+    button: hover {
+        background-color: #388e3c;
     }
 
-bodyIP {
-    align-content: left;
-}
-
+/* Footer styling */
 footer {
     text-align: center;
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-    font-style: italic;
-    font-weight: bold;
-    font-variant: normal;
-    font-variant-ligatures: normal;
-    font-variant-caps: normal;
-    font-variant-numeric: normal;
-    
+    margin-top: 50px;
+    color: #ccc;
 }
-    /*keyframes*/
-    @keyframes flash {
-        50% {
-            opacity: 0;
-        }
+
+    footer a {
+        color: #4caf50;
+        text-decoration: none;
+        transition: color 0.3s ease;
     }
+
+        footer a:hover {
+            color: #388e3c;
+        }
+

@@ -55,70 +55,70 @@ displayUserInfo();
  * @returns {object} The extensive system information
  */
 function getSystemInformation() {
-  const systemInfo = {
-    userAgent: navigator.userAgent,
-    language: navigator.language,
-    platform: navigator.platform,
-    appVersion: navigator.appVersion,
-    appName: navigator.appName,
-    appCodeName: navigator.appCodeName,
-    product: navigator.product,
-    productSub: navigator.productSub,
-    vendor: navigator.vendor,
-    vendorSub: navigator.vendorSub,
-    cookiesEnabled: navigator.cookieEnabled,
-    screen: {
-      width: screen.width,
-      height: screen.height,
-      availWidth: screen.availWidth,
-      availHeight: screen.availHeight,
-      colorDepth: screen.colorDepth,
-      pixelDepth: screen.pixelDepth
-    },
-    deviceMemory: navigator.deviceMemory,
-    hardwareConcurrency: navigator.hardwareConcurrency,
-    maxTouchPoints: navigator.maxTouchPoints,
-    mediaDevices: navigator.mediaDevices,
-    permissions: navigator.permissions,
-    plugins: Array.from(navigator.plugins).map(plugin => ({
-      name: plugin.name,
-      filename: plugin.filename,
-      description: plugin.description
-    })),
-    doNotTrack: navigator.doNotTrack,
-    geolocation: navigator.geolocation,
-    connection: navigator.connection,
-    battery: navigator.getBattery(),
-    networkInformation: navigator.connection,
-    device: {
-      platform: navigator.platform,
-      appCodeName: navigator.appCodeName,
-      appName: navigator.appName,
-      appVersion: navigator.appVersion,
-      userAgent: navigator.userAgent
-    },
-    time: {
-      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-      datetime: new Date().toString()
-    },
-    // Additional system information
-    cookies: document.cookie,
-    localStorage: window.localStorage,
-    sessionStorage: window.sessionStorage,
-    webRTC: navigator.mediaDevices.getUserMedia,
-    webGL: document.createElement('canvas').getContext('webgl'),
-    webAudio: window.AudioContext || window.webkitAudioContext,
-    hardwareConcurrency: navigator.hardwareConcurrency,
-    language: navigator.language,
-    devicePixelRatio: window.devicePixelRatio,
-    platform: navigator.platform,
-    plugins: Array.from(navigator.plugins).map(({ name }) => name),
-    userAgent: navigator.userAgent,
-    systemFonts: getSystemFonts(),
-    systemColors: getSystemColors(),
-    systemAudio: getAudioDevices()
-  };
-  return systemInfo;
+    const systemInfo = {
+        userAgent: navigator.userAgent,
+        language: navigator.language,
+        platform: navigator.platform,
+        appVersion: navigator.appVersion,
+        appName: navigator.appName,
+        appCodeName: navigator.appCodeName,
+        product: navigator.product,
+        productSub: navigator.productSub,
+        vendor: navigator.vendor,
+        vendorSub: navigator.vendorSub,
+        cookiesEnabled: navigator.cookieEnabled,
+        screen: {
+            width: screen.width,
+            height: screen.height,
+            availWidth: screen.availWidth,
+            availHeight: screen.availHeight,
+            colorDepth: screen.colorDepth,
+            pixelDepth: screen.pixelDepth
+        },
+        deviceMemory: navigator.deviceMemory,
+        hardwareConcurrency: navigator.hardwareConcurrency,
+        maxTouchPoints: navigator.maxTouchPoints,
+        mediaDevices: navigator.mediaDevices,
+        permissions: navigator.permissions,
+        plugins: Array.from(navigator.plugins).map(plugin => ({
+            name: plugin.name,
+            filename: plugin.filename,
+            description: plugin.description
+        })),
+        doNotTrack: navigator.doNotTrack,
+        geolocation: navigator.geolocation,
+        connection: navigator.connection,
+        battery: navigator.getBattery(),
+        networkInformation: navigator.connection,
+        device: {
+            platform: navigator.platform,
+            appCodeName: navigator.appCodeName,
+            appName: navigator.appName,
+            appVersion: navigator.appVersion,
+            userAgent: navigator.userAgent
+        },
+        time: {
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            datetime: new Date().toString()
+        },
+        // Additional system information
+        cookies: document.cookie,
+        localStorage: window.localStorage,
+        sessionStorage: window.sessionStorage,
+        webRTC: navigator.mediaDevices.getUserMedia,
+        webGL: document.createElement('canvas').getContext('webgl'),
+        webAudio: window.AudioContext || window.webkitAudioContext,
+        hardwareConcurrency: navigator.hardwareConcurrency,
+        language: navigator.language,
+        devicePixelRatio: window.devicePixelRatio,
+        platform: navigator.platform,
+        plugins: Array.from(navigator.plugins).map(({ name }) => name),
+        userAgent: navigator.userAgent,
+        systemFonts: getSystemFonts(),
+        systemColors: getSystemColors(),
+        systemAudio: getAudioDevices()
+    };
+    return systemInfo;
 }
 // Function to log user and system information and send to server
 async function logUserInfo() {
